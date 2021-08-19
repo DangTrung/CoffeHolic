@@ -1,0 +1,7 @@
+require("packs/dashboard/vendor/jquery/jquery.min.js")
+require("packs/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js")
+require("packs/dashboard/vendor/jquery-easing/jquery.easing.min.js")
+require("packs/dashboard/sb-admin-2.min.js")
+require("packs/dashboard/vendor/chart.js/Chart.min.js")
+require("packs/dashboard/demo/chart-area-demo.js")
+require("packs/dashboard/demo/chart-pie-demo.js")

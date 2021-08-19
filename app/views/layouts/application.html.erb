@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CoffeHolic</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'owl.carousel', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'owl.theme', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,800;1,800&amp;display=swap">
+  </head>
+
+  <body class="bg-darkmaroon position-relative">
+    <%= render 'layouts/header'%>
+    <%= yield %>
+    <%= render 'layouts/footer'%>
+    <%= javascript_pack_tag 'homepage', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>

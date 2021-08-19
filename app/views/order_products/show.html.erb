@@ -1,0 +1,6 @@
+<%if @order_products.empty?%>
+    <%=render 'empty_cart'%>
+<%else%>
+    <%=render 'cart'%>
+    <%=render 'total_cart'%>
+<%end%>

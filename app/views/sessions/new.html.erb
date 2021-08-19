@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row vh-auto">
+        <div class="col-md-8 col-8 m-auto py-5">
+            <h1 class="text-center text-only font-weight-bold mb-3">LOGIN</h1>
+             <%= form_for(:session, url: login_path, :html => {:class => 'text-uppercase text-only font-weight-bold'}) do |f| %>
+                <%= f.label :email, class: "text-uppercase text-only font-weight-bold mt-2" %>
+                <%= f.email_field :email, class: 'form-control m-2' %>
+
+                <%= f.label :password, class: 'text-uppercase text-only font-weight-bold mt-2'%>
+                <%= f.password_field :password, class: 'form-control m-2' %>
+                <br>
+                <%= f.submit "Log in", class: 'btn btn-primary btn-lg form-control m-2' %>
+            <% end %>
+          
+            <p class="m-2 text-center">
+                <a class="text-uppercase text-lightpurple text-decoration-none font-weight-bold"
+                    href="<%= root_path%>">
+                    Back to Homepage
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

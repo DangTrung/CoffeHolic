@@ -1,0 +1,79 @@
+<div class="col-6 mb-4 animate__animated animate__fadeInLeft">
+            <h4 class="font-italic text-orange border-bottom py-3">ORDER INFOMATION</h4>
+            <%= form_for(:orders, url:  check_out_path(@order.id), :html => {:class => 'info'}, method: "put")do |f| %>
+            	<div class="form-group mt-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-none rounded-0 text-orange">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                        <%= f.text_field :address, class: 'form-control bg-none rounded-0 text-light', placeholder: "Your address" %>
+                    </div>
+            	</div>
+
+            	<div class="form-group mt-3">
+            		<div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-none rounded-0 text-orange">
+                                <i class="fas fa-at"></i>
+                            </span>
+                        </div>
+                        <%= f.text_field :email, class: 'form-control bg-none rounded-0 text-light', placeholder: "Your email" %>
+                	</div>	
+            	</div>
+            	<div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-none rounded-0 text-orange">
+                                    <i class="fas fa-user-circle"></i>
+                                </span>
+                            </div>
+                          	<%= f.text_field :custumer_name, class: 'form-control bg-none rounded-0 text-light', placeholder: "Your name" %>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-none rounded-0 text-orange">
+                                    <i class="fas fa-phone-alt"></i>
+                                </span>
+                            </div>
+                            <%= f.text_field :phone, class: 'form-control bg-none rounded-0 text-light', placeholder: "Your Phone Number" %>
+                        </div>
+                    </div>
+            	</div>
+            	<div class="form-group mt-3">
+            		<div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-none rounded-0 text-orange">
+                                <i class="fas fa-notes-medical"></i>
+                            </span>
+                        </div>
+                        <%= f.text_area :description, class: 'form-control bg-none rounded-0 text-light', placeholder: "Description"%>
+                	</div>	
+            	</div>
+                <%= f.submit "CHECK", class: 'btn btn-block btn-outline-orange mt-3 font-italic rounded-0'%>
+           	<% end %>
+
+            <!-- <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0 text-orange font-italic">PAYMENTS</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" value="option1" checked>
+                            <label class="form-check-label text-secondary ml-2">
+                                Cash On Delivery (COD)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" value="option2">
+                            <label class="form-check-label text-secondary ml-2">
+                                Pay by credit card
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset> -->
+        </div>

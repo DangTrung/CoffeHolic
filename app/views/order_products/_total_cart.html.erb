@@ -1,0 +1,22 @@
+<div class="container Cart-Total">
+    <div class="row justify-content-end mb-5">
+        <div class="col-5 card pb-4 pt-2 animate__animated animate__fadeInUp">
+            <h4 class="m-0 font-weight-bold text-secondary border-bottom p-3">TỔNG GIỎ HÀNG</h4>
+            <div class="total d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="m-0 text-secondary font-weight-bold">GIÁ TIỀN</h5>
+                <h5 class="m-0 text-success font-weight-bold"><%= number_with_delimiter(total_price)%></h5>
+            </div>
+            <div class="total d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="m-0 text-secondary font-weight-bold">THUẾ(Da Tinh)</h5>
+                <h5 class="m-0 text-success font-weight-bold">10%</h5>
+            </div>
+            <div class="total d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="m-0 text-secondary font-weight-bold">TỔNG TIỀN</h5>
+                <h5 class="m-0 text-success font-weight-bold"><%= number_with_delimiter(total_price) %></h5>
+            </div>
+            <a class="btn btn-block btn-lightpurple mt-3 font-weight-bold rounded-0" href="<%=check_outs_path%>">
+                TIẾN HÀNH THANH TOÁN
+            </a>
+        </div>
+    </div>
+</div>

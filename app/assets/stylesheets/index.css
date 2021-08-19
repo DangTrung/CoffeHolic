@@ -1,0 +1,338 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+.unset
+{
+  position: unset !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.slide::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+.slide::-webkit-scrollbar-track {
+  background: orange;        /* color of the tracking area */
+}
+.slide::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+.bg-none:focus {
+  background-color: #181a1b;
+  outline: none;
+  border: none;
+}
+
+.bg-darkmaroon {
+  background: rgb(248, 245, 245);
+}
+
+.bg-orange {
+  background: -webkit-gradient(linear, right top, left top, from(orangered), to(#fa8016));
+  background: linear-gradient(to left, orangered, #fa8016);
+}
+
+.border-orange {
+  border: 1px solid #ea8025;
+}
+
+.border-t-orange {
+  border-top: 1px solid #ea8025;
+}
+
+.border-b-orange {
+  border-bottom: 1px solid #ea8025;
+}
+
+.font-lg {
+  font-size: 60px;
+}
+
+.font-sm {
+  font-size: 14px;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-orange {
+  color: #ea8025;
+}
+
+.text-orange:hover {
+  color: orangered;
+}
+
+.btn-orange {
+  background: #fa8016;
+  color: black;
+  border: 1px solid #ea8025;
+  outline: none;
+}
+
+.btn-orange:hover {
+  background-color: orangered;
+  border: 1px solid orangered;
+  color: black;
+  outline: none;
+}
+
+.btn-orange:focus {
+  background-color: orangered;
+  border: 1px solid orangered;
+  color: black;
+  outline: none;
+}
+
+.btn-outline-orange {
+  background-color: none;
+  border: 1px solid #ea8025;
+  color: #ea8025;
+  outline: none;
+}
+
+.btn-outline-orange:hover {
+  background: #fa8016;
+  border: 1px solid #fa8016;
+  color: black;
+  outline: none;
+}
+
+.text-facebook {
+  color: #ea8025;
+}
+
+.text-facebook:hover {
+  color: #4267b2;
+}
+
+.text-github {
+  color: #ea8025;
+}
+
+.text-github:hover {
+  color: #24292e;
+}
+
+.text-twitter {
+  color: #ea8025;
+}
+
+.text-twitter:hover {
+  color: #1da1f2;
+}
+
+.text-google {
+  color: #ea8025;
+}
+
+.text-google:hover {
+  color: #e34133;
+}
+
+.Topbar_row_col-4_ul_li_sub-menu {
+  display: none;
+
+}
+
+.Topbar_row_col-3_modal-body_product_product_items_img {
+  width: 30%;
+  text-align: center;
+}
+
+.Topbar_row_col-3_modal-body_product_product_items_img_pic {
+  max-width: 100%;
+  height: 120px;
+}
+
+.Topbar_row_col-3_modal-body_product_product_items_info {
+  width: 45%;
+}
+
+.Topbar_row_col-3_modal-body_product_product_items_btn {
+  width: 15%;
+}
+
+.menu-bar ul li:hover .sub-menu {
+  display: block;
+  position: absolute;
+}
+
+.Content_row_col-12_video {
+  width: 100%;
+  height: 100%;
+}
+
+.Content_row_col-12_content {
+  position: absolute;
+  top: 40%;
+  left: 37%;
+}
+
+.Footer_row_col-12_ul_li {
+  width: 40px;
+  height: 40px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border: 1px solid #ea8025;
+}
+
+.Footer_row_col-12_ul_li_fa {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+/*# sourceMappingURL=index.css.map */
+
+.Banner_row_col-12_img {
+  width: 100%;
+  height: 350px;
+  background-image: url("/assets/banner.png");
+}
+
+.Banner_row_col-12_content_img-1 {
+  width: 100%;
+  height: 350px;
+  background-image: url("/assets/our-coffee.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.Banner_row_col-12_content_img-2 {
+  width: 100%;
+  height: 350px;
+  background-image: url("/assets/roastery.png");
+  background-position: center;
+  background-size: cover;
+}
+.Content_row_col-12_img {
+  width: 100%;
+  height: 600px;
+  background-image: url("/assets/batender.png");
+  background-position: center;
+  background-size: cover;
+}
+.Products_row_col-12_img {
+  width: 100%;
+  height: 350px;
+  background-image: url("/assets/shop.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.Products_row_col-4_badge {
+  width: 80px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: -15%;
+}
+
+.Products_row_col-4_product-top_img {
+  max-width: 100%;
+  height: 250px;
+}
+
+.Products_row_col-4_product-top_overlay {
+  opacity: 0;
+  position: absolute;
+  bottom: 30%;
+}
+
+.Products_row_col-4_product-top:hover .overlay {
+  opacity: 1;
+  margin-bottom: 10%;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.Categories_row_col-4_col-12 {
+  height: 100px;
+  width: 100%;
+  background-image: url("/assets/background-search.png");
+  background-color: #ea8025;
+}
+
+.Categories_row_col-4_col-12_input {
+  width: 100%;
+  color: #ea8025;
+}
+
+.Categories_row_col-4_col-12_text {
+  width: 50px;
+  height: 50px;
+  background-color: #ea8025;
+  line-height: 45px;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+  border: 3px solid white;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.Categories_row_col-4_col-12_p {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.Product_row_col-12_img_pic {
+  max-width: 100%;
+  height: 350px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.Product_row_col-12_img_pic:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.Recommended_row_col-4_img {
+  max-width: 100%;
+  height: 350px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.Recommended_row_col-4_btn {
+  opacity: 0;
+  -webkit-transform: translateY();
+          transform: translateY();
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.col-4:hover .img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.col-4:hover .btn {
+  opacity: 1;
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+
+.Content_row_col-12_table_product_img_pic {
+  max-width: 100%;
+  height: 100px;
+}
+
+.Content_row_col-12_table_product_info {
+  width: 70%;
+  text-align: left;
+}
