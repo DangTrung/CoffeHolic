@@ -1,3 +1,4 @@
+<%@order_products = order_product %>
 <div class="col-6 bg-none pb-4 pt-2 animate__animated animate__fadeInRight">
     <h4 class="m-0 font-italic text-orange border-bottom p-3">YOUR ORDER</h4>
     <div class="product p-3 border-bottom">
@@ -6,7 +7,7 @@
 	        <p class="m-0 font-italic">Quantity</p>
 	        <p class="m-0 font-italic">Price</p>
 	    </div>
-    	<% @order_products.each do |order|%>
+    	<% order_product.each do |order|%>
 	        <div class="product-items d-flex justify-content-between mb-1">
 	            <h6 class="m-0 text-secondary font-italic"><%= order.product.name%></h6>
 	            <p class="m-0 font-italic"><%=order.quantity%></p>

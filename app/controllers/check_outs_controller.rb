@@ -1,12 +1,16 @@
 class CheckOutsController < ApplicationController
-  before_action :log_in_users, :load_order
+  before_action :log_in_users, :load_order 
 
   def index
-    @order_products = @order.order_products.includes(:product)
   end
 
   def update
-    byebug
+    if @order.update(order_params)
+      flash = "Your are checked"
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   private 
@@ -20,5 +24,6 @@ class CheckOutsController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:address, :phone, :description)
+    params.require(:orders).permit(:address, :phone, :description, :user_id, :customer_name)
+  end
 end

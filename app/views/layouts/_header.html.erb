@@ -36,21 +36,12 @@
                         <div class="sub-menu Topbar_row_col-4_ul_li_sub-menu pt-1">
                             <ul class="m-0 p-0 list-menu ">
                                 <li class="list-unstyled my-1 dropdown ">
-                                    <a class="text-decoration-none text-orange font-italic" type="button"
-                                           id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false" href="#">
+                                    <a class="text-decoration-none text-orange font-italic" type="button" href="<%=category_path("product")%>">
                                         COFFEE'S CATEGORY
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <% category.each do |i|%>
-                                        <a class="dropdown-item text-decoration-none text-orange font-italic" href="#">
-                                            <small><%=i.name%></small>
-                                        </a>
-                                    <%end%>
-                                    </div>
                                 </li>
                                 <li class="list-unstyled my-1">
-                                    <a class="text-decoration-none text-orange font-italic" href=""
+                                    <a class="text-decoration-none text-orange font-italic" href="<%= category_path("article")%>"
                                         onclick="loadShop()">
                                         NEWS CATEGORY
                                     </a>

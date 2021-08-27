@@ -5,6 +5,6 @@ module HomepagesHelper
 	end
 
 	def category
-		Category.all
+		Category.joins(:products)
 	end
 end

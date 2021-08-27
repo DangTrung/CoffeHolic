@@ -1,2 +1,56 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">DataTables Products</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <%product_columns.each do |name|%>
+                <th><%=name%></th>
+              <%end%>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <%product_columns.each do |name|%>
+                <th><%=name%></th>
+              <%end%>   
+              <th>Category</th>
+              <th>Action</th> 
+            </tr>
+          </tfoot>
+          <tbody>
+            <% @product.each do |product| %>
+              <tr>
+                <%product_columns.each do |key| %>
+                  <td><%= product[key.to_sym] %></td>
+                <% end %>
+                <td class="list-unstyled">
+                  <%product.categories.each do |name| %>
+                    <li><%= name.name%></li>
+                  <%end%>
+                </td>
+                <td class = "d-flex">
+                  <%= link_to "edit", edit_admin_product_path(product.id), method: :get, class: "btn btn-md btn-primary mx-2 rounded" %>
+                  ||
+                  <%= link_to "Delete", admin_products_path(product.id), method: :delete, class: "btn btn-md btn-danger mx-2 rounded",
+                            data: { confirm: "Are you sure?" } %>
+                </td>
+              </tr>
+            <% end %>                  
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
