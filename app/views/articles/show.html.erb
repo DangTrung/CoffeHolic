@@ -1,2 +1,53 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+ <div class="container-fluid Products">
+        <div class="row my-4">
+            <div class="col-12 p-0 mb-5 unset">
+                <div class="img d-flex justify-content-center align-items-center Products_row_col-12_img">
+                    <h1 class="font-italic text-orange font-lg pointer animate__animated animate__fadeInDown">
+                        Article
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container Categories">
+        <div class="row">
+            <div class="col-4">
+                <div class="col-12 Categories_row_col-4_col-12 d-flex align-items-center justify-content-center animate__animated animate__fadeInDown">
+                    <div class="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control rounded-0" placeholder="search category ...">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 my-5 animate__animated animate__fadeInLeft">
+                    <div class="title d-flex align-items-center text-orange border-b-orange pb-3">
+                        <i class="fas fa-coffee fa-lg text-secondary"></i>
+                        <h5 class="font-italic m-0 ml-4">CATEGORIES</h5>
+                    </div>
+                    <ul class="p-0 ml-2 my-3 slide">
+                        <% article_categories.each do |category|%>
+                            <li class="list-unstyled py-2 text-secondary">
+                                <i class="fas fa-angle-right mr-2"></i>
+                                <a class="text-decoration-none text-orange" href=""><%=category.name%></a>
+                            </li>
+                        <%end%>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-8 d-flex flex-wrap">
+            	<h2 class="text-orange"><%= @article.title%></h2> 
+            	<h3><%= @article.description %></h3>
+            	<%= @article.content.html_safe %>
+
+            </div>
+
+        </div>
+    </div>

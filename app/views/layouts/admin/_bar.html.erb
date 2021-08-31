@@ -26,25 +26,25 @@
         Interface
       </div>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
           <i class="fas fa-fw fa-cog"></i>
           <span>Products</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Products Function</h6>
-            <%= link_to "index" , admin_products_path, class: 'collapse-item'%>
-            <%= link_to "New", new_admin_product_path, class: 'collapse-item'%>
+             <%= link_to "Index" , admin_products_path, class: 'collapse-item'%>
+             <%= link_to "New", new_admin_product_path, class: 'collapse-item'%>
           </div>
         </div>
       </li>
       <!--order-->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
           <i class="fas fa-fw fa-cog"></i>
           <span>Orders</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Orders Function</h6>
             <%= link_to "index" , admin_orders_path, class: 'collapse-item'%>
@@ -53,11 +53,11 @@
       </li>
       <!--category-->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3>
           <i class="fas fa-fw fa-cog"></i>
           <span>Categories</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Category Function</h6>
             <%= link_to "index" , admin_categories_path, class: 'collapse-item'%>
@@ -65,8 +65,6 @@
           </div>
         </div>
       </li>
-
-      <!-- Divider -->
       <hr class="sidebar-divider">
       <div class="sidebar-heading">
         User and Role
@@ -84,13 +82,13 @@
           </div>
         </div>
       </li>
-      <!--order-->
+      <!--Roles-->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
           <i class="fas fa-fw fa-cog"></i>
           <span>Roles</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Orders Function</h6>
             <%= link_to "index" , class: 'collapse-item'%>
@@ -98,22 +96,6 @@
           </div>
         </div>
       </li>
-      <!--category-->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Permisions</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Permisson Function</h6>
-            <%= link_to "index" , class: 'collapse-item'%>
-          </div>
-        </div>
-      </li>
-    
-
-      <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->

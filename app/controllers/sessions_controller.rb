@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
-	before_action :load_user, only: [:create, :destroy]
+	before_action :load_user, only: [:create]
 
 	def new; end
 
 	def create 
 		if @user.authenticate(params[:session][:password])
 			log_in @user
-			redirect_to root_path 
+			params[:session][:remember_me] == "1" ? remember(@user) : forget(@user)
+			@user.admin?? (redirect_to admin_root_path):(redirect_back_or root_url)
 		else
 			flash.now[:danger] = "Wrong password"
 			render :new
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		log_out
+		redirect_to root_path
 	end
 
 	private

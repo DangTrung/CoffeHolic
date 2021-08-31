@@ -4,7 +4,7 @@ class OrderProductsController < ApplicationController
 	def create
 		if @order.order_products.find_by(product_id: params[:order_product][:product_id]).blank?
 			@order_product = @order.order_products.new(order_product_params)
-	        @order.save
+	        @order.build
 	        session[:order_id] = @order.id
 	        flash[:success] = "Added to your cart"
 	        redirect_to request.referer || root_path
@@ -17,7 +17,7 @@ class OrderProductsController < ApplicationController
 	def quick_add
 		if @order.order_products.find_by(product_id: params[:product_id]).blank?
 			@order_product = @order.order_products.new(product_id: params[:product_id], quantity: 1)
-	        @order.save
+	        @order.build
 	        session[:order_id] = @order.id
 	        flash[:success] = "Added to your cart"
 	        redirect_to request.referer || root_path

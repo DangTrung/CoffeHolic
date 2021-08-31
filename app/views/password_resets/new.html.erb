@@ -1,0 +1,14 @@
+<% provide(:title, "Forgot password") %>
+<div class="container">
+	<div class="row vh-auto">
+		<div class="col-md-8 col-8 m-auto py-5">
+			<h1 class="text-center">Forgot password</h1>
+		  	<%= form_for(:password_reset, url: password_resets_path, :html => {:class => 'text-uppercase text-only font-weight-bold'}) do |f| %>
+			    <%= f.label :email %>
+			    <%= f.email_field :email, class: 'form-control' %>
+			    <br>
+			    <%= f.submit "Submit", class: "btn btn-primary" %>
+		  	<% end %>
+		</div>
+	</div>
+</div>

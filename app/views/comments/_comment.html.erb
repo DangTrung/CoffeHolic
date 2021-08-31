@@ -1,0 +1,8 @@
+<%= form_with model: Comment.new, remote: true, class: "w-50" do |f|%>
+    <div class="form-group">
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.hidden_field :user_id, value: current_user&.id %>
+        <%= f.text_area :content,   :class => "form-control rounded-0 bg-none text-light", placeholder: "Your Comment", rows: 5%>
+    </div>
+    <%= f.submit "SUBMIT", class: "btn btn-outline-orange rounded-0 font-italic"%>
+<% end %>

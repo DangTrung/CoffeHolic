@@ -31,6 +31,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def update
     if @product.update(product_params)
+      @product.category_ids = params[:product][:category_ids]
       flash[:success] = "The product was updated"
       redirect_to admin_products_path
     else
@@ -51,7 +52,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def product_params
-    params.require(:product).require()
+    params.require(:product).permit(:name, :price, :image)
   end
 
   def load_category

@@ -15,7 +15,7 @@
                         <div class="sub-menu Topbar_row_col-4_ul_li_sub-menu pt-1">
                             <ul class="m-0 p-0 list-menu">
                                 <li class="list-unstyled my-1">
-                                    <a class="text-decoration-none text-orange font-italic" href="#"
+                                    <a class="text-decoration-none text-orange font-italic" href="<%= articles_path %>"
                                         onclick="loadShop()">
                                         COFFEE'S News
                                     </a>
@@ -36,12 +36,12 @@
                         <div class="sub-menu Topbar_row_col-4_ul_li_sub-menu pt-1">
                             <ul class="m-0 p-0 list-menu ">
                                 <li class="list-unstyled my-1 dropdown ">
-                                    <a class="text-decoration-none text-orange font-italic" type="button" href="<%=category_path("product")%>">
+                                    <a class="text-decoration-none text-orange font-italic" type="button" href="<%= categories_path("product")%>">
                                         COFFEE'S CATEGORY
                                     </a>
                                 </li>
                                 <li class="list-unstyled my-1">
-                                    <a class="text-decoration-none text-orange font-italic" href="<%= category_path("article")%>"
+                                    <a class="text-decoration-none text-orange font-italic" href="<%= categories_path("article")%>"
                                         onclick="loadShop()">
                                         NEWS CATEGORY
                                     </a>
@@ -65,11 +65,24 @@
             <div class="col-3">
                 <ul class="m-0 p-0 d-flex justify-content-center align-items-center">
                     <%if log_in?%>
-                        <li class="list-unstyled mr-4 animate__animated animate__fadeInUp">
-                            <a class="text-decoration-none text-orange d-flex align-items-center" href="#">
-                                <i class="far fa-user-circle fa-lg mr-2"></i>
-                                <small class="font-italic"><%=current_user.name%></small>
+                        <li class="nav-item dropdown no-arrow list-unstyled">
+                          <a class="nav-link dropdown-toggle text-decoration-none text-orange d-flex align-items-center" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="far fa-user-circle fa-lg mr-2"></i>
+                            <small class="font-italic"><%=current_user.name%></small>
+                          </a>
+                          <!-- Dropdown - User Information -->
+                          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="">
+                              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                              Edit Profile
                             </a>
+                            <a class="dropdown-item" href="">
+                              <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                              Order History
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <%= button_to "Logout", logout_path, class:"dropdown-item", method: "delete" %>
+                          </div>
                         </li>
                     <%else%>
                         <li class="list-unstyled mr-4 animate__animated animate__fadeInUp">
@@ -98,18 +111,18 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="product">
-                                        <% current_order.products.each do |i|%>
+                                        <% current_order.products.each do |product|%>
                                             <div class="product-items d-flex justify-content-around align-items-center">
                                                 <div class="img Topbar_row_col-3_modal-body_product_product_items_img">
-                                                    <%= image_tag "w1.jpg", class: "img Topbar_row_col-3_modal-body_product_product_items_img" %>
+                                                    <%= image_tag product.image, class: "img Topbar_row_col-3_modal-body_product_product_items_img" if product.image.attached? %>
                                                 </div>
                                                 <div
                                                     class="info Topbar_row_col-3_modal-body_product_product_items_info">
-                                                    <h6 class="m-0 font-italic text-orange"><%= i.name%></h6>
-                                                    <small><%= i.price %></small>
+                                                    <h6 class="m-0 font-italic text-orange"><%= product.name%></h6>
+                                                    <small><%= product.price %></small>
                                                 </div>
                                                 <div class="btn Topbar_row_col-3_modal-body_product_product_items_btn">
-                                                    <%= button_to  order_product_path(i.id), method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' } do%>
+                                                    <%= button_to  order_product_path(product.id), method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' } do%>
                                                         <i class="fas fa-trash"></i>
                                                     <%end%>
                                                 </div>

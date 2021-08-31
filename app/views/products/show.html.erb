@@ -2,7 +2,7 @@
         <div class="row my-5">
             <div class="col-12 d-flex align-items-center mb-5 unset">
                 <div class="img w-50 text-center animate__animated animate__fadeInLeft">
-                    <%= image_tag 'roastery', class:"pic Product_row_col-12_img_pic"%>
+                    <%= image_tag @product.image, class: "pic Product_row_col-12_img_pic" if @product.image.attached? %>
                 </div>
                 <div class="info w-50 animate__animated animate__fadeInRight">
                     <h2 class="name text-orange font-italic">Euro Espresso Coffee</h2>
@@ -19,7 +19,6 @@
             </div>
         </div>
     </div>
-
     <div class="container Comment">
         <div class="row mb-5">
             <div class="col-12">
@@ -28,48 +27,11 @@
                 </h1>
             </div>
 
-            <div class="col-12 mt-2 border-b-orange animate__animated animate__fadeInLeft">
-                <div class="w-75 mb-3">
-                    <h6 class="text-orange font-italic">Anonymous</h6>
-                    <p class="text-secondary">
-                        Arrived last night... I could not WAIT to cup this coffee up and give it a taste this morning!
-                        So i
-                        made an overnight cold brew for my partner! We had our wishes this morning... but were somewhat
-                        let
-                        down. Brightness and fruitiness are both quite underwhelming. The coffee is roasted "dry" ie.,
-                        marginally dark but with no lacquering and unfortunately produces a final, cupped or
-                        cold-brewed,
-                        product that has a definite "green" aftertaste. NOT at all satisfying... it's ok... definitely
-                        not
-                        great.
-                    </p>
-                </div>
-
-                <div class="w-75 mb-3">
-                    <h6 class="text-orange font-italic">Abdurahman</h6>
-                    <p class="text-secondary">
-                        I love the taste of Kenya Peaberry its great bean
-                    </p>
-                </div>
-
-                <div class="w-75 mb-3">
-                    <h6 class="text-orange font-italic">Hollybelle</h6>
-                    <p class="text-secondary">
-                        This is one of the most sophisticated dark roast flavours from Peets I have ever enjoyed. It is
-                        not nearly as dominant as Aged Sumatra, nor heavy as a French Roast but combines a delightful
-                        smell with a very smooth satisfying flavour to one of the best select roasts in Peet repertoire
-                    </p>
-                </div>
-            </div>
+            <%= render "comments"%>
 
             <div class="col-12 py-4 border-b-orange animate__animated animate__fadeInUp">
                 <h6 class="text-orange font-italic mb-3">My review for Euro Espresso Coffee</h6>
-                <form class="w-50">
-                    <div class="form-group">
-                        <textarea class="form-control rounded-0 bg-none text-light" placeholder="Your comment" rows="5"></textarea>
-                    </div>
-                    <button class="btn btn-outline-orange rounded-0 font-italic">SUBMIT</button>
-                </form>
+                <%= render "comments/comment"%>
             </div>
         </div>
     </div>

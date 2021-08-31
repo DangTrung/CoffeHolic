@@ -1,2 +1,96 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<div class="container-fluid Products">
+    <div class="row my-4">
+        <div class="col-12 p-0 mb-5 unset">
+            <div class="img d-flex justify-content-center align-items-center Products_row_col-12_img">
+                <h1 class="font-italic text-orange font-lg pointer animate__animated animate__fadeInDown">
+                    CATEGORY
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container Categories">
+    <div class="row">
+        <div class="col-4">
+            <div class="col-12 Categories_row_col-4_col-12 d-flex align-items-center justify-content-center animate__animated animate__fadeInDown">
+                <div class="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control rounded-0" placeholder="search products ...">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 my-5 animate__animated animate__fadeInLeft">
+                <div class="title d-flex align-items-center text-orange border-b-orange pb-3">
+                    <i class="fas fa-coffee fa-lg text-secondary"></i>
+                    <h5 class="font-italic m-0 ml-4">CATEGORIES</h5>
+                </div>
+                <%=render partial: "category", collection: @category, as: "category"%>
+            </div>
+
+            <div class="col-12 my-5 animate__animated animate__fadeInLeft">
+                <div class="title d-flex align-items-center text-orange border-b-orange pb-3">
+                    <i class="fas fa-filter fa-lg text-secondary"></i>
+                    <h5 class="font-italic m-0 ml-4">FILTER BY PRICE</h5>
+                </div>
+                <div class="slider my-5 d-flex flex-column align-items-center justify-content-center">
+                    <div class="text text-center Categories_row_col-4_col-12_text ml-5 mb-3">
+                        <p class="Categories_row_col-4_col-12_p m-0 font-italic text-black" id="rangeValue">100</p>
+                    </div>
+                    <input class="Categories_row_col-4_col-12_input" type="range" min="0" max="200" value="100" oninput="rangeValue.innerText = this.value">
+                    <button class="btn btn-outline-orange rounded-0 mt-4 px-4 font-italic">
+                        Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 d-flex flex-wrap">
+            <div class="col-md-12 py-4 mb-4 bg-orange d-flex justify-content-between align-items-center animate__animated animate__fadeInRight">
+                <div class="show">
+                    <p class="m-0 text-black ml-3">Showing 20 result</p>
+                </div>
+                <div class="sort">
+                    <div class="dropdown">
+                        <a class="mr-3 text-black d-flex justify-content-between align-items-center" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <p class="m-0 mr-5">Default sorting</p>
+                            <i class="fas fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">
+                                <small>Sort by price: Low to High</small>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <small>Sort by price: High to Low</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 my-5 text-center animate__animated animate__fadeInUp">
+                <div class="title">
+                    <h2 class="text-orange font-italic text-uppercase">Features Product</h2>
+                </div>
+            </div>
+             <%if @product%>
+                <%= render partial: "products/product", collection: @product, as: "product"%>
+            <%end%>
+            <%if @article%>
+                <%= render partial: "articles/article", collection: @article, as: "article"%>
+            <%end%>
+        </div>
+    </div>  
+</div>
+
+
+
+
+
+
+ 

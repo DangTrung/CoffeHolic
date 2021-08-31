@@ -1,0 +1,31 @@
+<div class="col-md-4 my-5 Products_row_col-4 animate__animated animate__fadeInUp">
+    <div class="badge Products_row_col-4_badge d-flex flex-column align-items-center bg-cream">
+        <small class="font-italic text-black d-flex flex-wrap text-white">TOP</small>
+        <small class="font-italic text-black d-flex flex-wrap text-white">SELLER</small>
+    </div>
+    <div class="product-top Products_row_col-4_product-top text-center">
+        <%= image_tag product.image, class: "img Products_row_col-4_product-top_img" if product.image.attached? %>
+        <div
+            class="overlay Products_row_col-4_product-top_overlay d-flex flex-column justify-content-center">
+            <a class="btn btn-outline-orange my-2 rounded-0" href="<%=product_path(product.id)%>" onclick="loadDetail()">
+                <i class="fas fa-eye"></i>
+            </a>
+            <button class="btn btn-outline-orange my-2 rounded-0">
+                <i class="fas fa-heart"></i>
+            </button>
+            <%= form_with url: quick_add_path, remote: true do |f|%>
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.hidden_field :quantity,:value => 1, :class => "text-orange text-center bg-none p-2 font-italic"%>
+                <%= f.button :submit , :class => "btn btn-outline-orange my-2 rounded-0" do %>
+                    <i class="fas fa-shopping-bag"></i>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <div class="product-bottom text-center mt-4">
+        <a class="text-decoration-none" href="<%=product_path(product.id)%>" onclick="loadDetail()">
+            <h4 class="m-0 text-orange font-italic"><%=product.name%></h4>
+        </a>
+        <p class="m-0 text-secondary font-italic"><%=product.price%></p>
+    </div>
+</div>

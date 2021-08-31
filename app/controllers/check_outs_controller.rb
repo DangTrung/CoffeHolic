@@ -6,9 +6,12 @@ class CheckOutsController < ApplicationController
 
   def update
     if @order.update(order_params)
-      flash = "Your are checked"
+      #send_email confirm
+      flash[:success] = "Your are checked. Check your mail please "
       redirect_to root_path
+      session[:order_id] = nil
     else
+      flash[:now] = "checked fails"
       render :index
     end
   end

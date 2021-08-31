@@ -1,0 +1,10 @@
+<div class="col-12 mt-2 border-b-orange animate__animated animate__fadeInLeft">
+    <div class="w-75 mb-3 overflow-auto">
+    	<% @product.comments.each do |comment|%>
+	        <h6 class="text-orange font-italic"><%= comment.user.name %></h6>
+	        <p class="text-secondary">
+	            <%= comment.content%>
+	        </p>
+        <%end%>
+    </div>
+</div>

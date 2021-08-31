@@ -5,16 +5,16 @@ Rails.application.routes.draw do
 
   get "about", to: 'homepages#about'
   get "contact", to: 'homepages#contact'
-  get 'articles/index'
-  get 'articles/show'
   get 'categories/index/:slug', to: 'categories#index', as: 'categories'
-  get 'categories/show/:id', to: 'categories#show' as: 'category'
+  get 'categories/show/:id', to: 'categories#show', as: 'category'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout' ,to: "sessions#destroy"
 
   resources :products, only: [:show, :index]
+  resources :comments, only: [:create, :destroy]
+  resources :password_resets, only: [:new, :edit, :create, :update]
   resources :articles, only: [:show, :index]
   resources :order_products, only: [:create, :destroy]
   resources :check_outs, only: [:index, :update]
@@ -23,11 +23,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'dashboards#index'
-    resources :categories
+    resources :categories 
     resources :products
     resources :users
     resources :articles
     resources :orders
+    resources :roles
   end
 
 end
