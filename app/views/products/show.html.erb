@@ -1,80 +1,57 @@
- <div class="container Product">
-        <div class="row my-5">
-            <div class="col-12 d-flex align-items-center mb-5 unset">
-                <div class="img w-50 text-center animate__animated animate__fadeInLeft">
-                    <%= image_tag @product.image, class: "pic Product_row_col-12_img_pic" if @product.image.attached? %>
-                </div>
-                <div class="info w-50 animate__animated animate__fadeInRight">
-                    <h2 class="name text-orange font-italic">Euro Espresso Coffee</h2>
-                    <h2 class="price text-secondary font-italic"><%=@product.price%></h2>
-                    <p class="description text-secondary">
-                        <%= @product.description%>
-                    </p>
-                    <%= form_with model: OrderProduct.new, remote: true do |f|%>
-                        <%= f.hidden_field :product_id, value: @product.id %>
-                        <%= f.number_field :quantity, in: 1..20, step: 1, :class => "text-orange text-center p-2 font-italic"%>
-                        <%= f.submit "ADD TO CART", class: "btn btn-outline-orange py-2 rounded-0 font-italic ml-3"%>
-                    <% end %>
-                </div>
+<div class="container Product">
+    <div class="row my-5">
+        <div class="col-12 d-flex align-items-center mb-5 unset">
+            <div class="img w-50 text-center animate__animated animate__fadeInLeft">
+                <%= image_tag @product.image, class: "pic Product_row_col-12_img_pic" if @product.image.attached? %>
+            </div>
+            <div class="info w-50 animate__animated animate__fadeInRight">
+                <h2 class="name text-orange font-italic"><%=@product.name%></h2>
+                <h2 class="price text-secondary font-italic"><%=@product.price%></h2>
+                <p class="description text-secondary">
+                    <%= @product.description%>
+                </p>
+                <%= form_with model: OrderProduct.new, remote: true do |f|%>
+                    <%= f.hidden_field :product_id, value: @product.id %>
+                    <%= f.number_field :quantity, in: 1..20, step: 1, :class => "text-orange text-center p-2 font-italic"%>
+                    <%= f.submit "ADD TO CART", class: "btn btn-outline-orange py-2 rounded-0 font-italic ml-3"%>
+                <% end %>
             </div>
         </div>
     </div>
-    <div class="container Comment">
-        <div class="row mb-5">
-            <div class="col-12">
-                <h1 class="m-0 text-orange font-italic text-center animate__animated animate__fadeInDown">
-                    REVIEWS
-                </h1>
-            </div>
+</div>
+<div class="container Comment">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h1 class="m-0 text-orange font-italic text-center animate__animated animate__fadeInDown">
+                REVIEWS
+            </h1>
+        </div>
 
-            <%= render "comments"%>
+        <%= render "comments"%>
 
-            <div class="col-12 py-4 border-b-orange animate__animated animate__fadeInUp">
-                <h6 class="text-orange font-italic mb-3">My review for Euro Espresso Coffee</h6>
-                <%= render "comments/comment"%>
-            </div>
+        <div class="col-12 py-4 border-b-orange animate__animated animate__fadeInUp">
+            <h6 class="text-orange font-italic mb-3">My review for <%=@product.name%></h6>
+            <%= render "comments/comment"%>
         </div>
     </div>
+</div>
 
-    <div class="container Recommended">
-        <div class="row mb-5 animate__animated animate__fadeInUpBig">
-            <div class="col-12">
-                <h3 class="m-0 text-orange font-italic text-center">
-                    YOU MAY ALSO LIKE
-                </h3>
-            </div>
-            <div class="col-4 d-flex flex-column justify-content-center align-items-center mt-5">
-
-                <a class="mt-2 text-decoration-none text-orange" href="">
-                    <img class="img Recommended_row_col-4_img" src="assets/images/coffee/euro-espresso.png">
-                    <h5 class="m-0 font-italic text-center mt-2">Yolk Roastb</h5>
-                </a>
-                <p class="m-0 font-italic text-secondary">$20.00</p>
-                <button class="btn btn-outline-orange font-italic text-orange rounded-0 mt-5 Recommended_row_col-4_btn">
-                    VIEW PRODUCT
-                </button>
-            </div>
-
-            <div class="col-4 d-flex flex-column justify-content-center align-items-center mt-5">
-                <a class="mt-2 text-decoration-none text-orange" href="">
-                    <img class="img Recommended_row_col-4_img" src="assets/images/coffee/euro-espresso.png">
-                    <h5 class="m-0 font-italic text-center mt-2">Yolk Roastb</h5>
-                </a>
-                <p class="m-0 font-italic text-secondary">$20.00</p>
-                <button class="btn btn-outline-orange font-italic text-orange rounded-0 mt-5 Recommended_row_col-4_btn">
-                    VIEW PRODUCT
-                </button>
-            </div>
-
-            <div class="col-4 d-flex flex-column justify-content-center align-items-center mt-5">
-                <a class="mt-2 text-decoration-none text-orange" href="">
-                    <img class="img Recommended_row_col-4_img" src="assets/images/coffee/euro-espresso.png">
-                    <h5 class="m-0 font-italic text-center mt-2">Yolk Roastb</h5>
-                </a>
-                <p class="m-0 font-italic text-secondary">$20.00</p>
-                <button class="btn btn-outline-orange font-italic text-orange rounded-0 mt-5 Recommended_row_col-4_btn">
-                    VIEW PRODUCT
-                </button>
-            </div>
+<div class="container Recommended">
+    <div class="row mb-5 animate__animated animate__fadeInUpBig">
+        <div class="col-12">
+            <h3 class="m-0 text-orange font-italic text-center">
+                YOU MAY ALSO LIKE
+            </h3>
         </div>
+        <%load_recommend.each do |product|%>
+            <div class="col-4 d-flex flex-column justify-content-center align-items-center mt-5">
+                <a class="mt-2 text-decoration-none text-orange" href="">
+                    <%= image_tag product.image, class: "img Recommended_row_col-4_img" if @product.image.attached? %>
+                    <h5 class="m-0 font-italic text-center mt-2"><%product.name%></h5>
+                </a>
+                <p class="m-0 font-italic text-secondary"><%=product.price%></p>
+                <%= link_to "VIEW PRODUCT", product_path(product.id), class:"btn btn-outline-orange font-italic text-orange rounded-0 mt-5 Recommended_row_col-4_btn" %>
+            </div>
+        <%end%>
     </div>
+</div>

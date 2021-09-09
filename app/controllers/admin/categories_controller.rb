@@ -1,6 +1,8 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :load_category, only: [:edit, :update, :destroy]
   before_action :load_parent
+  load_and_authorize_resource
+  before_action :load_permissions
 
   def index
     @category = Category.all
@@ -23,7 +25,6 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def edit
-    byebug
     @category = Category.find(params[:id])
     @selected = @category.parent_id
   end
@@ -35,6 +36,11 @@ class Admin::CategoriesController < Admin::BaseController
     else
       render :new
     end
+  end
+  
+  def destroy
+  	@category.destroy
+  	redirect_to request.referer
   end
 
   private

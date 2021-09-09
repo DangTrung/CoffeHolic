@@ -4,7 +4,7 @@ class Category < ApplicationRecord
 	has_many :category_objects, dependent: :destroy
 	has_many :products, through: :category_objects, source: :objectable, source_type: "Product" 
 	has_many :articles, through: :category_objects, source: :objectable, source_type: "Article"
-	validates :name, presence: true
+	validates :name, presence: true, uniqueness: true
 	has_many :children, class_name: "Category", foreign_key: "parent_id"
 	belongs_to :parent, class_name: "Category", optional: true
 

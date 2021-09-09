@@ -1,7 +1,9 @@
 class Admin::ProductsController < Admin::BaseController
   before_action :load_product, only: [:show, :edit, :update, :destroy]
   before_action :load_category, only: [:edit, :new]
-  
+  load_and_authorize_resource
+  before_action :load_permissions
+
   def index
     @product = Product.includes(:categories).all
   end

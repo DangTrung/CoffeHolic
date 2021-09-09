@@ -1,5 +1,8 @@
 class Admin::UsersController < Admin::BaseController
   before_action :load_user, only: [:show, :edit, :destroy, :update]
+  before_action :load_role, only: [:new, :edit]
+  load_and_authorize_resource
+  before_action :load_permissions
 
   def index
     @user = User.all 
@@ -16,6 +19,7 @@ class Admin::UsersController < Admin::BaseController
       redirect_to admin_users_path
     else 
       flash.now[:danger] = "User's not created"
+      @selected = params[:user][:role_id]
       render :new
     end
   end
@@ -24,9 +28,11 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
+    @selected = @user.role_id
   end
 
   def update
+
     if @user.update(user_params)
       flash[:success] = "User's updated"
       redirect_to admin_users_path
@@ -44,10 +50,14 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:avatar, :name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:avatar, :name, :email, :password, :password_confirmation, :role_id, :admin)
   end
 
   def load_user
     @user = User.find(params[:id])
+  end
+
+  def load_role
+    @role = Role.all
   end
 end

@@ -1,0 +1,17 @@
+<%= form_with model: Message.new, remote: true, class: "mr-5" do |f|%>
+    <div class="form-group text-left animate__animated animate__fadeInRight">
+        <%= f.label:name, class: "text-orange font-italic"%>
+        <%= f.text_field :name, require: true, value: current_user&.name, class: "form-control rounded-0 border-none" %>
+    </div>
+    <div class="form-group text-left animate__animated animate__fadeInRight">
+        <%= f.label :email, class: "text-orange font-italic"%>
+        <%= f.email_field :email, required: true, value: current_user&.email, class: "form-control rounded-0 border-none"%>
+    </div>
+    <div class="form-group text-left animate__animated animate__fadeInRight">
+        <%= f.label :content, class: "text-orange font-italic" do %>
+            <span>What can we help with?</span>
+            <%end%>
+        <%= f.text_area :content,   :class => "form-control rounded-0 bg-none", placeholder: "Your Messages", rows: 5%>
+    </div>
+    <%= f.submit "SUBMIT", class: "btn btn-outline-orange rounded-0 font-italic px-3 animate__animated animate__fadeInUp"%>
+<% end %>

@@ -7,21 +7,25 @@ class User < ApplicationRecord
 	has_one_attached :avatar
 	has_many :comments, dependent: :destroy
 	belongs_to :role, optional: true
+	has_many :messages, dependent: :destroy
 
-	validates :name, presence: true
+	validates :name, presence: true, uniqueness:true
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
-  	validates :email, presence: true,
-            length: {maximum: 225},
-            format: {with: VALID_EMAIL_REGEX},
-            uniqueness: true
-  	has_secure_password
+
+  	validates :email, presence: true, length: { maximum: 255 },
+                      format: { with: VALID_EMAIL_REGEX },
+                      uniqueness: { case_sensitive: false }
+
+  	has_secure_password(validations: false)
   	validates :password, presence: true,
             length: {minimum: 6},
-            allow_nil: true
+            allow_blank: true
 
     class << self
     	def new_token 
+    		SecureRandom.urlsafe_base64
     	end
+    	
     	def digest string
     		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
       		BCrypt::Password.create(string, cost: cost)

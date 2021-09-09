@@ -1,6 +1,9 @@
 class Admin::ArticlesController < Admin::BaseController
   before_action :find_article, only: [:show, :edit, :update, :destroy]
   before_action :load_category, only: [:new, :edit]
+  load_and_authorize_resource
+  before_action :load_permissions
+  
   def index
     @article = Article.includes(:categories).all
   end
@@ -17,6 +20,8 @@ class Admin::ArticlesController < Admin::BaseController
       flash[:success] = "The new article was created"
       redirect_to admin_articles_path
     else
+      flash.now[:danger] = "The article wasn't created"
+      @selected = params[:article][:category_ids]
       render :new
     end
   end
